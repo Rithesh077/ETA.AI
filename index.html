@@ -13,69 +13,72 @@
             <h1 id="welcome-message">ETA.AI Dashboard</h1>
             <div class="header-controls">
                 <button id="loginBtn">Login</button>
-                <button id="saveSettingsBtn">Save Settings</button>
+                <button id="openSettingsBtn">Settings</button>
                 <button id="themeBtn">Toggle Theme</button>
             </div>
         </header>
 
         <div class="main-layout">
+            
             <div class="left-column">
                 <div class="history-panel">
                     <h2>Chat History</h2>
                     <ul id="history-list">
-                        <li>No chats yet.</li>
+                        <li>No chats saved yet.</li>
                     </ul>
                 </div>
                 <div class="preview-panel">
-                    <h2>Source Preview</h2>
+                    <h2>External Sources</h2>
                     <div class="preview-controls">
-                        <button class="source-btn" data-url="https://en.wikipedia.org/wiki/Main_Page">Wikipedia</button>
-                        <button class="source-btn" data-url="https://github.com/">GitHub</button>
-                        <button class="source-btn" data-url="https://www.reddit.com/">Reddit</button>
-                    </div>
-                    <div id="resizable-container" class="resizable-container">
-                        <iframe id="source_iframe" srcdoc="<p>Select a source to preview it here.</p>"></iframe>
+                        <a href="https://en.wikipedia.org/wiki/Main_Page" target="_blank" class="source-link">Wikipedia</a>
+                        <a href="https://github.com/" target="_blank" class="source-link">GitHub</a>
+                        <a href="https://www.reddit.com/" target="_blank" class="source-link">Reddit</a>
                     </div>
                 </div>
             </div>
+
             <div class="right-column">
-                <h2>Response Controls</h2>
-                <div class="controls-grid">
-                    <div class="control-item">
-                        <label for="temperature">Temperature (Creativity)</label>
-                        <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7">
-                        <span id="tempValue">0.7</span>
-                    </div>
-                    <div class="control-item">
-                        <label for="min-tokens">Min Tokens</label>
-                        <input type="number" id="min-tokens" value="50">
-                    </div>
-                    <div class="control-item">
-                        <label for="max-tokens">Max Tokens</label>
-                        <input type="number" id="max-tokens" value="500">
-                    </div>
-                    <div class="control-item">
-                        <label for="think-more">"Think More" Feature</label>
-                        <input type="checkbox" id="think-more">
-                    </div>
+                <h2>Chat Interface</h2>
+                <div class="model-selection">
+                    <label for="model-select">Select Model:</label>
+                    <select id="model-select">
+                        <option value="text-reasoning">Text, Reasoning & Math</option>
+                        <option value="coding">Coding Assistance</option>
+                        <option value="image-gen">Image Generation</option>
+                        <option value="video-edit">Video/Photo Editing</option>
+                    </select>
                 </div>
+                <textarea id="prompt-input" rows="5" placeholder="Enter your query here..."></textarea>
+                <textarea id="response-area" rows="10" readonly placeholder="AI's response will appear here..."></textarea>
+                <button id="get-response-btn">Get Response</button>
             </div>
         </div>
+    </div>
 
-        <div class="query-section">
-            <div class="model-selection">
-                <label for="model-select">Select Model:</label>
-                <select id="model-select">
-                    <option value="text-reasoning">Text, Reasoning & Math</option>
-                    <option value="coding">Coding Assistance</option>
-                    <option value="image-gen">Image Generation</option>
-                    <option value="video-edit">Video/Photo Editing</option>
-                    <option value="audio-gen">Audio Generation</option>
-                </select>
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Response Controls</h2>
+            <div class="controls-grid">
+                <div class="control-item">
+                    <label for="temperature">Temperature (Creativity)</label>
+                    <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.7">
+                    <span id="tempValue">0.7</span>
+                </div>
+                <div class="control-item">
+                    <label for="min-tokens">Min Tokens</label>
+                    <input type="number" id="min-tokens" value="50">
+                </div>
+                <div class="control-item">
+                    <label for="max-tokens">Max Tokens</label>
+                    <input type="number" id="max-tokens" value="500">
+                </div>
+                <div class="control-item">
+                    <label for="think-more">"Think More" Feature</label>
+                    <input type="checkbox" id="think-more">
+                </div>
             </div>
-            <textarea id="prompt-input" rows="3" placeholder="Enter your query here..."></textarea>
-            <textarea id="response-area" rows="6" readonly placeholder="AI's response will appear here..."></textarea>
-            <button id="get-response-btn">Get Response</button>
+            <button id="saveSettingsBtn">Save Settings</button>
         </div>
     </div>
 
