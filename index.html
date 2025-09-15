@@ -38,19 +38,21 @@
             </div>
 
             <div class="right-column">
-                <h2>Chat Interface</h2>
-                <div class="model-selection">
-                    <label for="model-select">Select Model:</label>
-                    <select id="model-select">
-                        <option value="text-reasoning">Text, Reasoning & Math</option>
-                        <option value="coding">Coding Assistance</option>
-                        <option value="image-gen">Image Generation</option>
-                        <option value="video-edit">Video/Photo Editing</option>
-                    </select>
-                </div>
-                <textarea id="prompt-input" rows="5" placeholder="Enter your query here..."></textarea>
-                <textarea id="response-area" rows="10" readonly placeholder="AI's response will appear here..."></textarea>
-                <button id="get-response-btn">Get Response</button>
+                <form id="chat-form">
+                    <h2>Chat Interface</h2>
+                    <div class="model-selection">
+                        <label for="model-select">Select Model:</label>
+                        <select id="model-select" required>
+                            <option value="text-reasoning">Text, Reasoning & Math</option>
+                            <option value="coding">Coding Assistance</option>
+                            <option value="image-gen">Image Generation</option>
+                            <option value="video-edit">Video/Photo Editing</option>
+                        </select>
+                    </div>
+                    <textarea id="prompt-input" rows="5" placeholder="Enter your query here..." required minlength="3"></textarea>
+                    <textarea id="response-area" rows="10" readonly placeholder="AI's response will appear here..."></textarea>
+                    <button id="get-response-btn" type="submit">Get Response</button>
+                </form>
             </div>
         </div>
     </div>
